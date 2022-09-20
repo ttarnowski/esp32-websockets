@@ -30,17 +30,6 @@ void sendOkMessage() {
   wsClient.sendTXT("{\"action\":\"msg\",\"type\":\"status\",\"body\":\"ok\"}");
 }
 
-void sendPinChangeMessage(uint8_t pin, int value) {
-  char msg[MSG_SIZE];
-
-  sprintf(msg,
-          "{\"action\":\"msg\",\"type\":\"pinChange\",\"body\":{\"pin\":%d,"
-          "\"value\":%d}}",
-          pin, value);
-
-  wsClient.sendTXT(msg);
-}
-
 uint8_t toMode(const char *val) {
   if (strcmp(val, "output") == 0) {
     return OUTPUT;
